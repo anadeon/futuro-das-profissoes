@@ -4,508 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre o Projeto - Futuro em Foco</title>
-    <style>
-        :root {
-            --primary-pink: #FF6B9D;
-            --primary-blue: #4ECDC4;
-            --accent-yellow: #FFE066;
-            --deep-purple: #6C63FF;
-            --dark-navy: #2C3E50;
-            --light-gray: #F8F9FA;
-            --white: #FFFFFF;
-            --gradient-1: linear-gradient(135deg, var(--primary-pink) 0%, var(--deep-purple) 100%);
-            --gradient-2: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-purple) 100%);
-            --gradient-3: linear-gradient(135deg, var(--accent-yellow) 0%, var(--primary-pink) 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-navy);
-            background: var(--light-gray);
-        }
-
-        /* Header Styles */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: var(--gradient-1);
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-decoration: none;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--dark-navy);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-menu a:hover {
-            color: var(--white);
-            background: var(--gradient-1);
-            transform: translateY(-2px);
-        }
-
-        /* Main Content */
-        main {
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
-        }
-
-        /* Page Header */
-        .page-header {
-            background: var(--gradient-1);
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .page-header h1 {
-            font-size: 3rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: slideInUp 0.8s ease;
-        }
-
-        .page-header p {
-            font-size: 1.2rem;
-            color: var(--white);
-            opacity: 0.9;
-            animation: slideInUp 0.8s ease 0.2s both;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Content Sections */
-        .content-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--dark-navy);
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .about-text h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100px;
-            height: 4px;
-            background: var(--gradient-1);
-            border-radius: 2px;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-visual {
-            background: var(--gradient-2);
-            border-radius: 25px;
-            padding: 3rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-visual::before {
-            content: '🚀';
-            font-size: 8rem;
-            opacity: 0.2;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(-50%, -50%) translateY(0px);
-            }
-            50% {
-                transform: translate(-50%, -50%) translateY(-20px);
-            }
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-item {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary-pink);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Mission Cards */
-        .mission-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .mission-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mission-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .mission-card:nth-child(1)::before {
-            background: var(--gradient-1);
-        }
-
-        .mission-card:nth-child(2)::before {
-            background: var(--gradient-2);
-        }
-
-        .mission-card:nth-child(3)::before {
-            background: var(--gradient-3);
-        }
-
-        .mission-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .mission-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .mission-card h3 {
-            font-size: 1.5rem;
-            color: var(--dark-navy);
-            margin-bottom: 1rem;
-        }
-
-        .mission-card p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* Developer Section */
-        .developer-section {
-            background: var(--white);
-            padding: 4rem 2rem;
-            margin-top: 4rem;
-        }
-
-        .developer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .developer-card {
-            background: linear-gradient(135deg, rgba(255, 107, 157, 0.05) 0%, rgba(108, 99, 255, 0.05) 100%);
-            border-radius: 25px;
-            padding: 3rem;
-            border: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .developer-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gradient-1);
-            border-radius: 25px;
-            z-index: -1;
-        }
-
-        .developer-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: var(--gradient-1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--white);
-            margin: 0 auto 2rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 107, 157, 0.4);
-            }
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 10px rgba(255, 107, 157, 0);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(255, 107, 157, 0);
-            }
-        }
-
-        .developer-name {
-            font-size: 2rem;
-            color: var(--dark-navy);
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .developer-role {
-            font-size: 1.1rem;
-            color: var(--primary-pink);
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .developer-description {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--gradient-2);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-section h2 {
-            font-size: 2.5rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-
-        .contact-section p {
-            font-size: 1.2rem;
-            color: var(--white);
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: 15px;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-item:hover {
-            background: var(--white);
-            color: var(--primary-blue);
-            transform: translateY(-5px);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-navy);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--white);
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--primary-pink);
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .page-header h1 {
-                font-size: 2.2rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-text h2 {
-                font-size: 2rem;
-                text-align: center;
-            }
-
-            .about-text h2::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .mission-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .developer-card {
-                padding: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -534,12 +33,12 @@
                 <div class="about-text">
                     <h2>Nossa Missão</h2>
                     <p>O <strong>Futuro em Foco</strong> nasceu da necessidade de orientar jovens estudantes em um mundo profissional em constante transformação. Vivemos uma era de mudanças aceleradas, onde novas profissões surgem rapidamente e antigas se reinventam.</p>
-                    
+
                     <p>Este site foi criado para ser um guia prático e acessível, oferecendo informações atualizadas sobre as profissões do futuro, habilidades essenciais e um roteiro claro de preparação para o mercado de trabalho.</p>
-                    
+
                     <p>Acreditamos que todos os jovens merecem ter acesso a orientações de qualidade para construir carreiras de sucesso, independente de sua origem ou condição socioeconômica.</p>
                 </div>
-                
+
                 <div class="about-visual">
                     <div class="stats-grid">
                         <div class="stat-item">
@@ -547,7 +46,7 @@
                             <span class="stat-label">Páginas Informativas</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">15+</span>
+                            <span class="stat-number">3</span>
                             <span class="stat-label">Profissões Apresentadas</span>
                         </div>
                         <div class="stat-item">
@@ -590,11 +89,11 @@
                     <h3 class="developer-name">Ana Gabriela Deon</h3>
                     <p class="developer-role">Desenvolvedora e Criadora do Projeto</p>
                     <p class="developer-description">
-                        Estudante apaixonada por tecnologia e educação, Ana Gabriela desenvolveu este projeto com o objetivo de ajudar outros jovens a navegarem pelas oportunidades do mercado de trabalho digital. 
-                        Com experiência em desenvolvimento web e grande interesse nas transformações do mundo do trabalho, ela criou este recurso educacional para democratizar o acesso à informação sobre carreiras do futuro.
+                        Estudante de Análise e desenvolvimento de Sistema, desenvolvi este projeto com o objetivo de ajudar outros jovens a navegarem pelas oportunidades do mercado de trabalho digital.
+                        Com experiência em desenvolvimento web e grande interesse nas transformações do mundo do trabalho, criei este recurso educacional para democratizar o acesso à informação sobre carreiras do futuro.
                     </p>
                     <p class="developer-description">
-                        <strong>Motivação:</strong> "Acredito que a informação de qualidade deve estar ao alcance de todos. Este projeto representa meu compromisso em ajudar outros estudantes a se prepararem para um futuro profissional promissor."
+                        Este projeto representa o compromisso em ajudar outros estudantes a se prepararem para um futuro profissional promissor.
                     </p>
                 </div>
             </div>
@@ -604,24 +103,18 @@
             <div class="contact-content">
                 <h2>Entre em Contato</h2>
                 <p>Gostaria de sugerir melhorias, reportar algum problema ou simplesmente dizer olá? Entre em contato!</p>
-                
+
                 <div class="contact-info">
-                    <a href="mailto:anagabrieladeon@exemplo.com" class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <strong>Email</strong>
-                        <small>anagabrieladeon@exemplo.com</small>
-                    </a>
-                    
                     <a href="#" class="contact-item">
                         <span class="contact-icon">💼</span>
                         <strong>LinkedIn</strong>
                         <small>Ana Gabriela Deon</small>
                     </a>
-                    
+
                     <a href="#" class="contact-item">
                         <span class="contact-icon">💻</span>
                         <strong>GitHub</strong>
-                        <small>github.com/anagabrieladeon</small>
+                        <small><link>https://github.com/anadeon</link></small>
                     </a>
                 </div>
             </div>
